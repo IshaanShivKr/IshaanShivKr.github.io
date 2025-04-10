@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Name | Personal Website</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <!-- Profile Icon -->
+    <img id="profile-icon" src="assets/Profile.jpeg" alt="Profile Picture"/>
+
+    <!-- Title -->
+    <h1>Hi, I'm Your Name</h1>
+
+    <!-- Dark Mode Toggle (now part of header) -->
+    <button id="theme-toggle" title="Toggle dark mode">🌙</button>
+  </header>
+
+  <!-- Sidebar Navigation -->
+  <div id="sidebar">
+    <nav>
+      <a href="#about">About</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#cv-download">CV</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <main>
+    <div class="hero">
+
+      <!-- About Section -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          I'm <strong>Your Name</strong>, a passionate [your role] from [your birthplace].
+          Welcome to my personal space online!
+        </p>
+        <div class="photo-gallery">
+          <img src="assets/Profile.jpeg" alt="Profile" />
+          <img src="assets/Noida.jpg" alt="Local scenery" />
+          <img src="assets/dlf.jpg" alt="DLF Mall, sector-18 Noida" />
+        </div>
+      </section>
+
+      <!-- Education Section -->
+      <section id="education">
+        <h2>Education</h2>
+        <ul>
+          <li><strong>B.Tech in [Field]</strong>, [University], [Year]</li>
+          <li><strong>High School</strong>, [School Name], [Board], [Year]</li>
+          <li>Achievements: [Any awards, ranks, competitions]</li>
+        </ul>
+      </section>
+
+      <!-- Skills Section -->
+      <section id="skills">
+        <h2>Technical Skills</h2>
+        <ul>
+          <li><strong>Expert:</strong> C, C++, Python</li>
+          <li><strong>Intermediate:</strong> JavaScript, HTML, CSS</li>
+          <li><strong>Basic:</strong> React, SQL, Git</li>
+        </ul>
+      </section>
+
+      <!-- CV Download -->
+      <section id="cv-download">
+        <h2>Download My CV</h2>
+        <a href="assets/cv.pdf" target="_blank">📄 Click here to view/download my CV</a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Your Name. All rights reserved.</p>
+  </footer>
+
+  <!-- JS Scripts -->
+  <script>
+    const profileIcon = document.getElementById("profile-icon");
+    const sidebar = document.getElementById("sidebar");
+    const themeToggle = document.getElementById("theme-toggle");
+
+    profileIcon.addEventListener("click", () => {
+      sidebar.classList.toggle("active");
+    });
+
+    document.querySelectorAll("#sidebar nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        sidebar.classList.remove("active");
+      });
+    });
+
+    // Dark Mode Setup
+    if (localStorage.getItem("theme") === "dark") {
+      document.body.classList.add("dark-mode");
+      themeToggle.textContent = "☀️";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      document.body.classList.toggle("dark-mode");
+      const isDark = document.body.classList.contains("dark-mode");
+      themeToggle.textContent = isDark ? "☀️" : "🌙";
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+  </script>
+
+</body>
+</html>
