@@ -184,3 +184,25 @@ body.dark-mode .timeline-item {
   margin-top: 1rem;
   text-align: left;
 }
+
+/* CV Section */
+#cv {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.cv-link {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #3498db;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.cv-link:hover {
+  background-color: #2980b9;
+}

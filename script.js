@@ -1,4 +1,4 @@
-// Initialize AOS
+// Initialize AOS (Animate On Scroll)
 AOS.init({
   duration: 1000,
   once: true,
@@ -10,6 +10,7 @@ if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
   themeToggle.textContent = "☀️";
 }
+
 themeToggle.addEventListener("click", () => {
   document.body.classList.toggle("dark-mode");
   const isDark = document.body.classList.contains("dark-mode");
@@ -17,13 +18,36 @@ themeToggle.addEventListener("click", () => {
   localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
-// Log Click Events and Page Views
+// Utility to get a descriptive name for the event object
+function getEventObjectType(target) {
+  const tag = target.tagName.toLowerCase();
+  const type = target.getAttribute("type") || "";
+
+  if (tag === "img") return "image";
+  if (tag === "select") return "drop-down";
+  if (tag === "textarea") return "text-area";
+  if (tag === "input") {
+    if (["text", "email", "password", "search"].includes(type)) return "text-input";
+    if (["radio", "checkbox"].includes(type)) return "form-control";
+    return "input";
+  }
+  if (tag === "button" || type === "submit") return "button";
+  if (tag === "a") return "link";
+  if (tag.match(/^h[1-6]$/)) return "heading";
+  if (tag === "p" || tag === "span" || tag === "div") return "text";
+
+  return tag;
+}
+
+// Log Click Events
 document.addEventListener("click", (event) => {
   const timestamp = new Date().toISOString();
   const eventType = "click";
-  const eventObject = event.target.tagName.toLowerCase();
+  const eventObject = getEventObjectType(event.target);
   console.log(`${timestamp}, ${eventType}, ${eventObject}`);
 });
+
+// Log Page Views on Load
 window.addEventListener("load", () => {
   const timestamp = new Date().toISOString();
   const eventType = "view";
@@ -75,4 +99,23 @@ document.getElementById("analyze-text").addEventListener("click", () => {
     <p><strong>Article Counts:</strong> ${JSON.stringify(articleCounts)}</p>
   `;
   document.getElementById("analysis-output").innerHTML = output;
+});
+
+// IntersectionObserver to track views of elements while scrolling
+const elementsToTrack = document.querySelectorAll('.track-view'); // Add `track-view` class to elements you want to track
+
+const observer = new IntersectionObserver((entries, observer) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const timestamp = new Date().toISOString();
+      console.log(`${timestamp}, view, ${entry.target.tagName.toLowerCase()}`);
+    }
+  });
+}, {
+  threshold: 0.5 // Trigger when 50% of the element is in view
+});
+
+// Observe elements with class "track-view"
+elementsToTrack.forEach((element) => {
+  observer.observe(element);
 });
