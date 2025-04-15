@@ -1,116 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Name | Personal Website</title>
-  <link rel="stylesheet" href="style.css"/>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Name | Personal Website</title>
+    <link rel="stylesheet" href="style.css" />
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- Header -->
+    <header>
+      <nav>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#noida" class="nav-link">Noida</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#text-analysis" class="nav-link">Text Analysis</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </nav>
+      <button id="theme-toggle" title="Toggle dark mode">🌙</button>
+    </header>
 
-  <!-- Header -->
-  <header>
-    <!-- Profile Icon -->
-    <img id="profile-icon" src="assets/Profile.jpeg" alt="Profile Picture"/>
-
-    <!-- Title -->
-    <h1>Hi, I'm Your Name</h1>
-
-    <!-- Dark Mode Toggle (now part of header) -->
-    <button id="theme-toggle" title="Toggle dark mode">🌙</button>
-  </header>
-
-  <!-- Sidebar Navigation -->
-  <div id="sidebar">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#education">Education</a>
-      <a href="#skills">Skills</a>
-      <a href="#cv-download">CV</a>
-    </nav>
-  </div>
-
-  <!-- Main Content -->
-  <main>
-    <div class="hero">
-
+    <!-- Main Content -->
+    <main>
       <!-- About Section -->
-      <section id="about">
-        <h2>About Me</h2>
-        <p>
-          I'm <strong>Your Name</strong>, a passionate [your role] from [your birthplace].
-          Welcome to my personal space online!
-        </p>
-        <div class="photo-gallery">
-          <img src="assets/Profile.jpeg" alt="Profile" />
-          <img src="assets/Noida.jpg" alt="Local scenery" />
-          <img src="assets/dlf.jpg" alt="DLF Mall, sector-18 Noida" />
+      <section id="about" data-aos="fade-up">
+        <div class="about-container">
+          <img src="assets/Profile.jpeg" alt="Profile" class="profile-photo" />
+          <div class="about-text">
+            <h2>About Me</h2>
+            <p>
+              I'm <strong>Ishaan Shiv Kumar</strong>, a passionate [your role] from [your birthplace]. Welcome to my personal space online! I enjoy [your hobbies or interests].
+            </p>
+          </div>
         </div>
+        <img src="assets/about.jpg" alt="About Me GIF" class="about-gif" />
+      </section>
+
+      <!-- Noida Section -->
+      <section id="noida" data-aos="fade-up">
+        <h2>Noida: The City That Shaped Me</h2>
+        <div class="noida-gallery">
+          <img src="assets/this_city.gif" alt="Life in Noida" class="noida-photo gif" />
+          <div class="noida-photos">
+            <img src="assets/Noida.jpg" alt="Local scenery" class="noida-photo" />
+            <img src="assets/dlf.jpg" alt="DLF Mall, sector-18 Noida" class="noida-photo" />
+          </div>
+        </div>
+        <p>
+          <br />
+          Growing up in Noida, I was surrounded by a vibrant culture and a fast-paced urban environment. These experiences have greatly influenced my perspective and creativity.
+        </p>
       </section>
 
       <!-- Education Section -->
-      <section id="education">
+      <section id="education" data-aos="fade-up">
         <h2>Education</h2>
         <ul>
-          <li><strong>B.Tech in [Field]</strong>, [University], [Year]</li>
-          <li><strong>High School</strong>, [School Name], [Board], [Year]</li>
+          <li><strong>B.Tech in Computer Science Engineering</strong>, International Institute of Information Technology Hyderabad, 2024</li>
+          <li><strong>High School</strong>, Lotus Valley International School Noida, CBSE, 2020-2022 <br /> KRD International School, CBSE, 2022-2024</li>
           <li>Achievements: [Any awards, ranks, competitions]</li>
         </ul>
+        <img src="assets/education.gif" alt="Education GIF" class="section-gif" />
       </section>
 
       <!-- Skills Section -->
-      <section id="skills">
+      <section id="skills" data-aos="fade-up">
         <h2>Technical Skills</h2>
         <ul>
           <li><strong>Expert:</strong> C, C++, Python</li>
           <li><strong>Intermediate:</strong> JavaScript, HTML, CSS</li>
           <li><strong>Basic:</strong> React, SQL, Git</li>
         </ul>
+        <img src="assets/skills.gif" alt="Skills GIF" class="section-gif" />
       </section>
 
-      <!-- CV Download -->
-      <section id="cv-download">
-        <h2>Download My CV</h2>
-        <a href="assets/cv.pdf" target="_blank">📄 Click here to view/download my CV</a>
+      <!-- Text Analysis Section -->
+      <section id="text-analysis" data-aos="fade-up">
+        <h2>Text Analysis</h2>
+        <textarea id="text-input" rows="10" cols="80" placeholder="Paste your text here (10,000+ words)..."></textarea>
+        <button id="analyze-text">Analyze Text</button>
+        <div id="analysis-output"></div>
       </section>
 
-    </div>
-  </main>
+      <!-- Contact Section -->
+      <section id="contact" data-aos="fade-up">
+        <h2>Contact Me</h2>
+        <p>Feel free to reach out through my socials or drop an email!</p>
+        <div class="contact-buttons">
+          <a
+            href="https://instagram.com/ishaan_shivkumar"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="contact-btn instagram"
+            >📸 Instagram</a
+          >
+          <p>Email: ishaanshivkr@gmail.com</p>
+        </div>
+        <img src="assets/contact.gif" alt="Contact GIF" class="section-gif" />
+      </section>
+    </main>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Your Name. All rights reserved.</p>
-  </footer>
+    <!-- Back-to-Top Button -->
+    <button id="back-to-top" title="Back to Top">↑</button>
 
-  <!-- JS Scripts -->
-  <script>
-    const profileIcon = document.getElementById("profile-icon");
-    const sidebar = document.getElementById("sidebar");
-    const themeToggle = document.getElementById("theme-toggle");
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 Your Name. All rights reserved.</p>
+    </footer>
 
-    profileIcon.addEventListener("click", () => {
-      sidebar.classList.toggle("active");
-    });
-
-    document.querySelectorAll("#sidebar nav a").forEach(link => {
-      link.addEventListener("click", () => {
-        sidebar.classList.remove("active");
-      });
-    });
-
-    // Dark Mode Setup
-    if (localStorage.getItem("theme") === "dark") {
-      document.body.classList.add("dark-mode");
-      themeToggle.textContent = "☀️";
-    }
-
-    themeToggle.addEventListener("click", () => {
-      document.body.classList.toggle("dark-mode");
-      const isDark = document.body.classList.contains("dark-mode");
-      themeToggle.textContent = isDark ? "☀️" : "🌙";
-      localStorage.setItem("theme", isDark ? "dark" : "light");
-    });
-  </script>
-
-</body>
+    <!-- JS Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
